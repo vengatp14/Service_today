@@ -506,6 +506,104 @@
     <i class="bi bi-whatsapp"></i>
   </a>
 </div>
+
+<!-- Enquiry Modal -->
+    <div class="modal fade" id="enquiryModal" tabindex="-1" aria-labelledby="enquiryModalLabel" aria-hidden="true"
+        style="z-index: 99999999;">
+        <div class="modal-dialog">
+            <div class="modal-content animate__animated animate__fadeInDown">
+                <div class="modal-header bg-light text-white">
+                    <h5 class="modal-title text-dark" id="enquiryModalLabel">Enquiry Form</h5>
+                    <!-- <button type="button" class="btn-close bg-white" id="modalCloseBtn" aria-label="Close" data-bs-dismiss="modal"></button> -->
+
+                </div>
+                <form class="needs-validation" action="https://api.web3forms.com/submit" method="POST" id="form" novalidate>
+
+                    <input type="hidden" name="access_key" value="48894973-99cd-41cc-b3bd-a0ca09ae35a8" />
+                    <input type="hidden" name="subject" value="New Submission from Web3Forms" />
+                    <input type="hidden" name="redirect" value="https://applianceservicesupport.com/thanks.html" />
+                    <input type="checkbox" name="botcheck" id="" style="display: none;" />
+
+                    <div class="modal-body">
+
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" name="fullName" id="fullName" required>
+                            <div class="invalid-feedback">Please enter your name.</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="mobileNumber" class="form-label">Mobile Number</label>
+                            <input type="tel" class="form-control" name="mobileNumber" id="mobileNumber"
+                                pattern="[0-9]{10}" required>
+                            <div class="invalid-feedback">Enter a valid 10-digit mobile number.</div>
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label for="district" class="form-label">District</label>
+                            <select class="form-select" name="district" id="district">
+                              <option value="">Select District (Optional)</option>
+                              <option value="Chennai">Chennai</option>
+                              <option value="Coimbatore">Coimbatore</option>
+                              <option value="Madurai">Madurai</option>
+                              <option value="Tiruchirappalli">Tiruchirappalli</option>
+                              <option value="Salem">Salem</option>
+ <option value="Salem">Pondicherry</option>
+                              <option value="Tirunelveli">Tirunelveli</option>
+                              <option value="Erode">Erode</option>
+                              <option value="Vellore">Vellore</option>
+                              <option value="Thoothukudi">Thoothukudi</option>
+                              <option value="Thanjavur">Thanjavur</option>
+                              <option value="Dindigul">Dindigul</option>
+                              <option value="Kanchipuram">Kanchipuram</option>
+                              <option value="Virudhunagar">Virudhunagar</option>
+                              <option value="Namakkal">Namakkal</option>
+                              <option value="Cuddalore">Cuddalore</option>
+                              <option value="Ramanathapuram">Ramanathapuram</option>
+                              <option value="Karur">Karur</option>
+                              <option value="Sivaganga">Sivaganga</option>
+                              <option value="Theni">Theni</option>
+                              <option value="Nagapattinam">Nagapattinam</option>
+                              <option value="Perambalur">Perambalur</option>
+                              <option value="Ariyalur">Ariyalur</option>
+                              <option value="Krishnagiri">Krishnagiri</option>
+                              <option value="Dharmapuri">Dharmapuri</option>
+                              <option value="Nilgiris">Nilgiris</option>
+                              <option value="Tiruvarur">Tiruvarur</option>
+                              <option value="Tiruppur">Tiruppur</option>
+                              <option value="Pudukkottai">Pudukkottai</option>
+                              <option value="Tiruvallur">Tiruvallur</option>
+                              <option value="Tiruvannamalai">Tiruvannamalai</option>
+                              <option value="Villupuram">Villupuram</option>
+                            </select>
+                          </div>
+                          
+                          <div class="mb-3">
+                            <label for="service" class="form-label">Service Required</label>
+                            <select class="form-select" name="service" id="service">
+                              <option value="">Select Service (Optional)</option>
+                              <option value="Washing Machine Service">Washing Machine Service</option>
+                              <option value="AC Service">AC Service</option>
+                              <option value="Fridge Service">Fridge Service</option>
+                              <option value="Microwave Oven Service">Microwave Oven Service</option>
+                              <option value="TV Service">TV Service</option>
+                              <option value="Water Purifier Service">Water Purifier Service</option>
+                              <option value="Dishwasher Service">Dishwasher Service</option>
+                            </select>
+                          </div>
+                          
+                  
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary w-100">Submit Enquiry</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>

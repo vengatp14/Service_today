@@ -162,4 +162,76 @@
     selector: '.glightbox'
   });
 
-})();
+
+
+
+    const forms = document.querySelectorAll('.needs-validation');
+
+    Array.from(forms).forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        const mobileInput = document.getElementById('mobileNumber');
+        const mobileValue = mobileInput.value.trim();
+        const mobilePattern = /^\d{10}$/;
+
+        if (!form.checkValidity() || !mobilePattern.test(mobileValue)) {
+          event.preventDefault();
+          event.stopPropagation();
+          mobileInput.classList.add('is-invalid');
+        } else {
+          mobileInput.classList.remove('is-invalid');
+        }
+
+        form.classList.add('was-validated');
+      }, false);
+    });
+  })();
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const modalId = 'enquiryModal';
+
+  // Step 1: Fetch user IP
+  fetch('https://api.ipify.org?format=json')
+    .then(response => response.json())
+    .then(data => {
+      const userIP = data.ip;
+      const localStorageKey = `enquiryModalShown_${userIP}`;
+
+      // Step 2: Show modal if not shown already for this IP
+      if (!localStorage.getItem(localStorageKey)) {
+        const myModal = new bootstrap.Modal(document.getElementById(modalId), {
+          backdrop: 'static',
+          keyboard: false
+        });
+        myModal.show();
+        localStorage.setItem(localStorageKey, 'true');
+      }
+
+      // Step 3: Close button - check if mobile is filled
+      const closeBtn = document.getElementById('modalCloseBtn');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function (e) {
+          const mobileInput = document.getElementById('mobileNumber');
+          const mobileValue = mobileInput.value.trim();
+
+          if (!mobileValue) {
+            mobileInput.classList.add('is-invalid');
+            mobileInput.focus();
+            e.preventDefault();
+          } else {
+            mobileInput.classList.remove('is-invalid');
+            const enquiryModal = bootstrap.Modal.getInstance(document.getElementById(modalId));
+            enquiryModal.hide();
+          }
+        });
+      }
+    })
+    .catch(err => {
+      console.error('Unable to fetch IP:', err);
+      const myModal = new bootstrap.Modal(document.getElementById(modalId), {
+        backdrop: 'static',
+        keyboard: false
+      });
+      myModal.show();
+    });
+});
