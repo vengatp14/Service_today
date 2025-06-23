@@ -1,5 +1,3 @@
-
-
 (function() {
   "use strict";
 
@@ -173,7 +171,8 @@
         const mobileValue = mobileInput.value.trim();
         const mobilePattern = /^\d{10}$/;
 
-        if (!form.checkValidity() || !mobilePattern.test(mobileValue)) {
+        // Only validate mobile number
+        if (!mobilePattern.test(mobileValue)) {
           event.preventDefault();
           event.stopPropagation();
           mobileInput.classList.add('is-invalid');
